@@ -24,3 +24,55 @@ pip install -r requirements.txt
 
 # Download NLTK data
 python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+```
+
+## 📁 Project Structure
+```
+src/main/
+├── data_preprocessing.py    # Data preprocessing utilities
+├── feature_extraction.py    # Feature extraction methods
+├── model.py                # Model definitions
+├── train.py               # Training script
+└── predict.py             # Prediction script
+```
+## 🚀 Quick Start
+Train the model:
+```bash
+cd src/main
+python train.py
+```
+Make predictions:
+```bash
+python predict.py
+```
+
+## 💻 Usage Example
+```python
+from predict import predict_email
+
+# Test with a sample email
+email_content = "Get rich quick! Buy now!"
+result = predict_email(email_content)
+print(f"Prediction: {result}")
+```
+## 📊 Model Performance
+The system provides detailed performance metrics including:
+
+Classification Report
+Confusion Matrix
+Specificity and Sensitivity scores
+## 🔧 Requirements
+- Python 3.7+
+- scikit-learn
+- NLTK
+- NumPy
+- joblib
+
+## 📝 Dependencies
+```txt
+scikit-learn>=1.0.2
+numpy>=1.22.0
+scipy>=1.7.3
+nltk>=3.6.7
+joblib>=1.1.0
+```
