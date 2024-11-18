@@ -1,7 +1,7 @@
 # 🚀 Spam Email Detection System
 
 ## 📋 Overview
-This project implements a machine learning-based spam email detection system using Python. It processes raw email data, extracts features, and trains different classifiers to identify spam emails.
+This project is the final project for ECE449: Machine Learning course at ZJUI (Zhejiang University - University of Illinois at Urbana-Champaign Institute) in Fall 2024. It implements a machine learning-based spam email detection system using Python, which processes raw email data, extracts features, and trains different classifiers to identify spam emails.
 
 ## ✨ Features
 - 📧 Email preprocessing and cleaning
