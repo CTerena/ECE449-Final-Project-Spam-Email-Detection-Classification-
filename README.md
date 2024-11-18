@@ -16,14 +16,14 @@ This project is the final project for ECE449: Machine Learning course at ZJUI (Z
 ## 🛠️ Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/spam-detection.git
+git clone https://github.com/CTerena/ECE449_FinalProject_Spam-Email-Detection-Classification.git
 cd spam-detection
 
 # Install required packages
 pip install -r requirements.txt
 
 # Download NLTK data
-python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('stopwords')"
 ```
 
 ## 📁 Project Structure
