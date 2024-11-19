@@ -1,7 +1,7 @@
 # 🚀 Spam Email Detection System
 
 ## 📋 Overview
-This project implements a machine learning-based spam email detection system using Python. It processes raw email data, extracts features, and trains different classifiers to identify spam emails.
+This project is the final project for ECE449: Machine Learning course at ZJUI (Zhejiang University - University of Illinois at Urbana-Champaign Institute) in Fall 2024. It implements a machine learning-based spam email detection system using Python, which processes raw email data, extracts features, and trains different classifiers to identify spam emails.
 
 ## ✨ Features
 - 📧 Email preprocessing and cleaning
@@ -16,14 +16,14 @@ This project implements a machine learning-based spam email detection system usi
 ## 🛠️ Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/spam-detection.git
-cd spam-detection
+git clone https://github.com/CTerena/ECE449_FinalProject_Spam-Email-Detection-Classification.git
+cd ECE449_FinalProject_Spam-Email-Detection-Classification
 
 # Install required packages
 pip install -r requirements.txt
 
 # Download NLTK data
-python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('stopwords')"
 ```
 
 ## 📁 Project Structure
