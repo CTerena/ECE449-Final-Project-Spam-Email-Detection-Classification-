@@ -8,11 +8,10 @@ class FeatureExtractor:
         self.vectorizer = TfidfVectorizer(max_features=max_features)
     
     def fit_transform(self, emails, labels, test_size=0.2):
-        """转换文本特征并划分数据集"""
-        # 转换文本为TF-IDF特征
+        """transform text data to TF-IDF features"""
         X = self.vectorizer.fit_transform(emails)
         
-        # 划分训练集和测试集
+        # split data into training and testing set
         X_train, X_test, y_train, y_test = train_test_split(
             X, labels, test_size=test_size, random_state=42
         )
@@ -20,5 +19,5 @@ class FeatureExtractor:
         return X_train, X_test, y_train, y_test
     
     def transform(self, emails):
-        """转换新的文本数据"""
+        """transform new text data to TF-IDF features"""
         return self.vectorizer.transform(emails)

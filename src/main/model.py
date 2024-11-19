@@ -15,15 +15,15 @@ class SpamClassifier:
             self.model = RandomForestClassifier(n_estimators=100, random_state=42)
     
     def train(self, X_train, y_train):
-        """训练模型"""
+        """train the model"""
         self.model.fit(X_train, y_train)
     
     def predict(self, X):
-        """预测"""
+        """predict X"""
         return self.model.predict(X)
     
     def evaluate(self, X_test, y_test):
-        """评估模型"""
+        """evaluate the model"""
         predictions = self.predict(X_test)
         print("\nClassification Report:")
         print(classification_report(y_test, predictions))

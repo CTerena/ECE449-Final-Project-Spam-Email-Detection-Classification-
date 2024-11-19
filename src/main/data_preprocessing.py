@@ -9,13 +9,14 @@ from nltk.tokenize import word_tokenize
 
 class EmailPreprocessor:
     def __init__(self):
-        # 下载必要的nltk数据
+        # download necessary nltk data
         nltk.download('punkt')
+        nltk.download('punkt_tab')
         nltk.download('stopwords')
         self.stop_words = set(stopwords.words('english'))
     
     def read_email(self, file_path):
-        """读取单个邮件内容"""
+        """read content of a single email"""
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
