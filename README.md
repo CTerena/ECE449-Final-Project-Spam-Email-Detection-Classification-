@@ -17,7 +17,7 @@ This project is the final project for ECE449: Machine Learning course at ZJUI (Z
 ```bash
 # Clone the repository
 git clone https://github.com/CTerena/ECE449_FinalProject_Spam-Email-Detection-Classification.git
-cd spam-detection
+cd ECE449_FinalProject_Spam-Email-Detection-Classification
 
 # Install required packages
 pip install -r requirements.txt
