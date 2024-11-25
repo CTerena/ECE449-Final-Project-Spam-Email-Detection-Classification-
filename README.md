@@ -30,16 +30,21 @@ python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk
 ```
 src/main/
 ├── data_preprocessing.py    # Data preprocessing utilities
+├── evaluation.py            # Evaluation script
 ├── feature_extraction.py    # Feature extraction methods
-├── model.py                # Model definitions
-├── train.py               # Training script
-└── predict.py             # Prediction script
+├── model.py                 # Model definitions
+├── train.py                 # Training script
+└── predict.py               # Prediction script
 ```
 ## 🚀 Quick Start
 Train the model:
 ```bash
 cd src/main
-python train.py
+python train.py --model_type 
+```
+Evaluate the model:
+```bash
+python evaluate.py --model_type 
 ```
 Make predictions:
 ```bash
@@ -52,7 +57,7 @@ from predict import predict_email
 
 # Test with a sample email
 email_content = "Get rich quick! Buy now!"
-result = predict_email(email_content)
+result = predict_email(email_content, model_name)
 print(f"Prediction: {result}")
 ```
 ## 📊 Model Performance
