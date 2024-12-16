@@ -14,24 +14,38 @@ def parse_args():
                       choices=['naive_bayes', 'svm', 'random_forest'],
                       default='naive_bayes',
                       help='Type of model to train')
+    parser.add_argument('--feature', 
+                      type=str, 
+                      choices=['glove', 'tfidf'],
+                      default='tfidf',
+                      help='Type of feature extraction')
     return parser.parse_args()
 
-def train_model(model_type):
-    # data path
+def train_model(model_type, feature):
+
+    # Base path for the dataset
     base_path = "../../data/enron_data/enron1"
-    
-    # Create model directory with model type
-    model_dir = f"../../models/{model_type}"
+
+    model_dir = f"../../models/{model_type}/{feature}"
     os.makedirs(model_dir, exist_ok=True)
     
-    # data preprocessing
+     # Initialize preprocessor and feature extractor
     preprocessor = EmailPreprocessor()
     emails, labels = preprocessor.load_dataset(base_path)
     
-    # feature extraction
-    feature_extractor = FeatureExtractor()
-    X_train, X_test, y_train, y_test = feature_extractor.fit_transform(emails, labels)
+    if(feature == "glove"):
+        embedding_path = "../../glove.6B/glove.6B.50d.txt"
+        
+        # Initialize feature extractor
+        feature_extractor = FeatureExtractor(feature, glove_file=embedding_path)
 
+        # Transform emails and split the dataset
+        X_train, X_test, y_train, y_test = feature_extractor.fit_transform(emails, labels)
+    else:
+        # feature extraction
+        feature_extractor = FeatureExtractor(feature)
+        X_train, X_test, y_train, y_test = feature_extractor.fit_transform(emails, labels)
+    
     # train model
     print(f"\nTraining {model_type} classifier...")
     classifier = SpamClassifier(model_type=model_type)
@@ -53,4 +67,4 @@ def train_model(model_type):
 
 if __name__ == "__main__":
     args = parse_args()
-    train_model(args.model_type)
+    train_model(args.model_type, args.feature)

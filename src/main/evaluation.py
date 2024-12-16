@@ -15,7 +15,7 @@ from data_preprocessing import EmailPreprocessor
 from feature_extraction import FeatureExtractor
 
 class ModelEvaluator:
-    def __init__(self, model_type, output_dir=None):
+    def __init__(self, model_type, feature, output_dir=None):
         """
         Initialize the evaluator with model type and output directory.
         
@@ -24,8 +24,8 @@ class ModelEvaluator:
             output_dir (str, optional): Directory to save evaluation results
         """
         self.model_type = model_type
-        self.model_dir = f"../../models/{model_type}"
-        self.output_dir = output_dir or f"../../evaluation_results/{model_type}"
+        self.model_dir = f"../../models/{model_type}/{feature}"
+        self.output_dir = output_dir or f"../../evaluation_results/{model_type}/{feature}"
         os.makedirs(self.output_dir, exist_ok=True)
         
         # Set up logging
@@ -128,6 +128,11 @@ def parse_args():
                       choices=['naive_bayes', 'svm', 'random_forest'],
                       default='naive_bayes',
                       help='Type of model to evaluate')
+    parser.add_argument('--feature', 
+                    type=str, 
+                    choices=['glove', 'tfidf'],
+                    default='tfidf',
+                    help='Type of feature extraction')
     return parser.parse_args()
 
 def main():
@@ -135,7 +140,7 @@ def main():
     args = parse_args()
     try:
         # Initialize evaluator with model type
-        evaluator = ModelEvaluator(args.model_type)
+        evaluator = ModelEvaluator(args.model_type, args.feature)
         
         # Load and preprocess evaluation data
         base_path = "../../data/enron_data/enron2"

@@ -40,11 +40,11 @@ src/main/
 Train the model:
 ```bash
 cd src/main
-python train.py --model_type 
+python train.py --model_type --feature
 ```
 Evaluate the model:
 ```bash
-python evaluate.py --model_type 
+python evaluation.py --model_type --feature
 ```
 Make predictions:
 ```bash
